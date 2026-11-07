@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f2f7f6;
+  color: #183b36;
+}
+header {
+  background: #075447;
+  color: white;
+  text-align: center;
+  padding: 26px 20px;
+}
+header h1 {
+  font-size: 26px;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+header p {
+  font-size: 14px;
+  color: #cfe5df;
+}
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+}
+main > div {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(15, 55, 48, 0.09);
+  padding: 34px;
+}
+main h2 {
+  font-size: 22px;
+  color: #174b42;
+  margin-bottom: 8px;
+}
+h2 + p {
+  font-size: 14px;
+  color: #61716b;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+label {
+  font-size: 13px;
+  font-weight: bold;
+  color: #174b42;
+  margin-top: 8px;
+}
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d3e2dd;
+  border-radius: 9px;
+  font-size: 14px;
+  color: #183b36;
+  background: #f8fbfa;
+  outline: none;
+  transition: 0.2s;
+}
+input:focus {
+  border-color: #087c68;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(8, 124, 104, 0.12);
+}
+button {
+  margin-top: 18px;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: #087c68;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+button:hover {
+  background: #075b4d;
+}
+form + p {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #e1ebe8;
+  text-align: center;
+  font-size: 14px;
+  color: #61716b;
+}
+p a {
+  color: #087c68;
+  font-weight: 600;
+  text-decoration: none;
+}
+p a:hover {
+  text-decoration: underline;
+}
+main > div > a {
+  display: block;
+  margin-top: 14px;
+  text-align: center;
+  font-size: 13px;
+  color: #82918c;
+  text-decoration: none;
+}
+main > div > a:hover {
+  color: #087c68;
+}

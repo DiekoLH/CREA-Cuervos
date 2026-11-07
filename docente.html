@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel del docente | CREA Cuervos</title>
+</head>
+<body>
+
+<header>
+    <h1>CREA CUERVOS</h1>
+    <p>Panel del docente</p>
+</header>
+
+<nav>
+    <a href="#mi-taller">Mi taller</a>
+    <a href="#alumnos">Alumnos</a>
+    <a href="#asistencia">Asistencia</a>
+    <a href="#justificantes">Justificantes</a>
+    <a href="#avisos">Avisos</a>
+    <a href="#constancias">Constancias</a>
+    <a href="index.html">Salir</a>
+</nav>
+
+<main>
+
+<section>
+    <h2>Bienvenido, instructor</h2>
+    <div>
+        <p>Desde este panel puedes administrar la información de tu taller y dar seguimiento a tus alumnos.</p>
+    </div>
+</section>
+
+<section>
+    <h2>Información de mi taller</h2>
+    <div>
+        <p><strong>Taller:</strong></p>
+        <p><strong>Horario:</strong></p>
+        <p><strong>Lugar:</strong></p>
+        <p><strong>Cupo:</strong></p>
+        <p><strong>Inscritos:</strong></p>
+    </div>
+</section>
+
+<section>
+    <h2>Alumnos inscritos</h2>
+    <div>
+        <table>
+            <tr>
+                <th>Matrícula</th>
+                <th>Nombre</th>
+                <th>Grupo</th>
+                <th>Asistencias</th>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section>
+    <h2>Control de asistencia</h2>
+    <div>
+        <label>Fecha de asistencia</label>
+        <input type="date">
+
+        <table>
+            <tr>
+                <th>Alumno</th>
+                <th>Asistencia</th>
+                <th>Falta</th>
+                <th>Falta justificada</th>
+            </tr>
+        </table>
+
+        <button type="button">Guardar asistencia</button>
+    </div>
+</section>
+
+<section>
+    <h2>Revisión de justificantes</h2>
+    <div>
+        <table>
+            <tr>
+                <th>Alumno</th>
+                <th>Fecha de falta</th>
+                <th>Justificante</th>
+                <th>Estado</th>
+            </tr>
+        </table>
+
+        <h3>Decisión del instructor</h3>
+
+        <form method="post">
+            <label>Selecciona el resultado</label>
+            <select>
+                <option>Selecciona una opción</option>
+                <option>Aceptar justificante</option>
+                <option>Rechazar justificante</option>
+            </select>
+
+            <label>Observaciones</label>
+            <textarea rows="3" placeholder="Escribe alguna observación"></textarea>
+
+            <button type="submit">Registrar decisión</button>
+        </form>
+    </div>
+</section>
+
+<section>
+    <h2>Publicar avisos</h2>
+    <div>
+        <form method="post">
+            <label>Título del aviso</label>
+            <input type="text" placeholder="Título">
+
+            <label>Contenido del aviso</label>
+            <textarea rows="4" placeholder="Escribe el aviso"></textarea>
+
+            <button type="submit">Publicar aviso</button>
+        </form>
+    </div>
+</section>
+
+<section>
+    <h2>Consulta de constancias</h2>
+    <div>
+        <table>
+            <tr>
+                <th>Alumno</th>
+                <th>Asistencia</th>
+                <th>Estado</th>
+            </tr>
+        </table>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>CREA Cuervos | UTVT</p>
+</footer>
+
+</body>
+</html>

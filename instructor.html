@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>CREA Cuervos</title>
+    <link href="style.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div class="contenedor">
+      <aside class="sidebar">
+        <div class="logo">
+          <span>CREA Cuervos - Instructor</span>
+        </div>
+        <nav>
+          <a class="opcion activa" data-titulo="Datos de usuario" href="#">Datos del instructor</a>
+          <details>
+            <summary>Gestión del taller</summary>
+            <div class="subopciones">
+              <a class="opcion" data-titulo="Constancias" href="#">Constancias</a>
+              <a class="opcion" data-titulo="Avisos" href="#">Avisos</a>
+              <a class="opcion" data-titulo="Lista de asistencia" href="#">Lista de asistencia</a>
+              <a class="opcion" data-titulo="Tomar asistencia" href="#">Tomar asistencia</a>
+              <a class="opcion" data-titulo="Revision de Justificantes" href="#">Revisión de justificantes</a>
+            </div>
+          </details>
+          <a class="opcion" data-titulo="Lista de alumnos que tienen constancia" href="#">Lista de alumnos que tienen constancia</a>
+           <details>
+            <summary><a style="text-decoration: none; color: aliceblue;" href="indexMenu.html"><b>← Volver al menú principal</b> </a></summary>
+          </details>
+        </nav>
+      </aside>
+      <main class="principal">
+        <header class="barra-superior">
+          <span id="seccion">Datos del instructor</span>
+          <div class="usuario">
+            <span>Instructor</span>
+            <div class="avatar">IN</div>
+          </div>
+        </header>
+        <section class="contenido">
+          <h1 id="titulo">Datos del instructor</h1>
+          <div class="tarjeta" id="tarjeta-datos-de-usuario" style="display: block;">
+            <div class="encabezado-tarjeta">
+              <h2>Bienvenido Miguel Orona</h2>
+              </h2>
+              <p>Consulta tu información personal y escolar.</p>
+            </div>
+            <div class="perfil-usuario">
+              <div class="perfil-encabezado">
+                <div class="avatar-usuario">MO</div>
+                <div>
+                  <h3>Miguel Orona</h3>
+                  <span>Estudiante</span>
+                </div>
+              </div>
+              <div class="datos-usuario">
+                <div class="dato">
+                  <label>Nombre completo</label>
+                  <p>Miguel Orona</p>
+                </div>
+                <div class="dato">
+                  <label>Matrícula</label>
+                  <p>20241001</p>
+                </div>
+                <div class="dato">
+                  <label>Correo electrónico</label>
+                  <p>miguel.orona@utvt.edu.mx</p>
+                </div>
+                <div class="dato">
+                  <label>Carrera</label>
+                  <p>Desarrollo de Software</p>
+                </div>
+                <div class="dato">
+                  <label>Grupo</label>
+                  <p>DSM-41</p>
+                </div>
+                <div class="dato">
+                  <label>Rol de usuario</label>
+                  <p>Instructor</p>
+                </div>
+              </div>
+              <div class="acciones-perfil">
+                <button class="btn-editar-perfil">Editar información</button>
+              </div>
+            </div>
+          </div>
+          <div class="tarjeta" id="tarjeta-constancias" style="display: none;">
+            <div class="encabezado-tarjeta">
+              <h2>Constancias de alumnos</h2>
+              <p>Consulta los alumnos de tu taller y carga sus respectivas constancias.</p>
+            </div>
+            <div class="tabla-contenedor">
+              <table class="tabla-estudiante tabla-constancias-instructor">
+                <thead>
+                  <tr>
+                    <th>Matrícula</th>
+                    <th>Nombre del alumno</th>
+                    <th>Taller</th>
+                    <th>Estado</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>20241001</td>
+                    <td>Miguel Orona</td>
+                    <td>Diseño y dibujo artístico</td>
+                    <td><span class="estado pendiente">Sin constancia</span></td>
+                    <td>
+                      <button class="btn-subir-constancia"><span>↑</span> Subir constancia</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>20241002</td>
+                    <td>Andrea Martínez</td>
+                    <td>Diseño y dibujo artístico</td>
+                    <td><span class="estado presente">Con constancia</span></td>
+                    <td>
+                      <button class="btn-subir-constancia"><span>↑</span> Subir constancia</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>20241003</td>
+                    <td>Daniel Hernández</td>
+                    <td>Diseño y dibujo artístico</td>
+                    <td><span class="estado pendiente">Sin constancia</span></td>
+                    <td>
+                      <button class="btn-subir-constancia"><span>↑</span> Subir constancia</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>20241004</td>
+                    <td>Fernanda López</td>
+                    <td>Diseño y dibujo artístico</td>
+                    <td><span class="estado presente">Con constancia</span></td>
+                    <td>
+                      <button class="btn-subir-constancia"><span>↑</span> Subir constancia</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>20241005</td>
+                    <td>Ricardo Sánchez</td>
+                    <td>Diseño y dibujo artístico</td>
+                    <td><span class="estado pendiente">Sin constancia</span></td>
+                    <td>
+                      <button class="btn-subir-constancia"><span>↑</span> Subir constancia</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tarjeta" id="tarjeta-avisos" style="display: none;">
+            <div class="encabezado-tarjeta">
+              <h2>Publicar avisos</h2>
+              <p>Redacta un aviso para los alumnos inscritos en tu taller.</p>
+            </div>
+            <form class="formulario" method="post">
+              <label>Título del aviso</label>
+              <input placeholder="Título" type="text"/>
+              <label>Contenido del aviso</label>
+              <textarea placeholder="Escribe el aviso" rows="4"></textarea>
+              <div class="acciones-formulario">
+                <button class="btn-principal" type="submit">Publicar aviso</button>
+              </div>
+            </form>
+          </div>
+          <div class="tarjeta" id="tarjeta-lista-de-asistencia" style="display: none;">
+            <div class="encabezado-tarjeta">
+              <h2>Lista de asistencia</h2>
+              <p>Consulta la asistencia de los alumnos inscritos en tu taller.</p>
+            </div>
+            <div class="informacion-asistencia">
+              <div>
+                <span>Taller</span>
+                <strong>Diseño y dibujo artístico</strong>
+              </div>
+              <div>
+                <span>Fecha de asistencia</span>
+                <strong>07/11/2026</strong>
+              </div>
+            </div>
+            <div class="tabla-contenedor">
+              <table class="tabla-estudiante tabla-asistencia-instructor">
+                <thead>
+                  <tr>
+                    <th>Matrícula</th>
+                    <th>Nombre del alumno</th>
+                    <th>Asistencia</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>20241001</td>
+                    <td>Miguel Orona</td>
+                    <td>
+                      <span class="estado presente">Presente</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>20241002</td>
+                    <td>Andrea Martínez</td>
+                    <td>
+                      <span class="estado ausente">Ausente</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>20241003</td>
+                    <td>Daniel Hernández</td>
+                    <td>
+                      <span class="estado presente">Presente</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>20241004</td>
+                    <td>Fernanda López</td>
+                    <td>
+                      <span class="estado presente">Presente</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>20241005</td>
+                    <td>Ricardo Sánchez</td>
+                    <td>
+                      <span class="estado ausente">Ausente</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>20241006</td>
+                    <td>Daniela Ramírez</td>
+                    <td>
+                      <span class="estado presente">Presente</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tarjeta" id="tarjeta-tomar-asistencia" style="display: none;">
+            <div class="encabezado-tarjeta">
+              <h2>Control de asistencia</h2>
+              <p>Registra la asistencia de los alumnos de tu taller.</p>
+            </div>
+            <div class="informacion-asistencia">
+              <div>
+                <span>Taller</span>
+                <strong>Diseño y dibujo artístico</strong>
+              </div>
+              <div>
+                <span>Fecha de asistencia</span>
+                <input type="date"/>
+              </div>
+            </div>
+            <div class="tabla-contenedor">
+              <table class="tabla-estudiante tabla-control">
+                <thead>
+                  <tr>
+                    <th>Alumno</th>
+                    <th>Asistencia</th>
+                    <th>Falta</th>
+                    <th>Falta justificada</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Miguel Orona</td>
+                    <td><input checked="" name="asistencia-1" type="radio"/></td>
+                    <td><input name="asistencia-1" type="radio"/></td>
+                    <td><input name="asistencia-1" type="radio"/></td>
+                  </tr>
+                  <tr>
+                    <td>Andrea Martínez</td>
+                    <td><input checked="" name="asistencia-2" type="radio"/></td>
+                    <td><input name="asistencia-2" type="radio"/></td>
+                    <td><input name="asistencia-2" type="radio"/></td>
+                  </tr>
+                  <tr>
+                    <td>Daniel Hernández</td>
+                    <td><input checked="" name="asistencia-3" type="radio"/></td>
+                    <td><input name="asistencia-3" type="radio"/></td>
+                    <td><input name="asistencia-3" type="radio"/></td>
+                  </tr>
+                  <tr>
+                    <td>Fernanda López</td>
+                    <td><input checked="" name="asistencia-4" type="radio"/></td>
+                    <td><input name="asistencia-4" type="radio"/></td>
+                    <td><input name="asistencia-4" type="radio"/></td>
+                  </tr>
+                  <tr>
+                    <td>Ricardo Sánchez</td>
+                    <td><input checked="" name="asistencia-5" type="radio"/></td>
+                    <td><input name="asistencia-5" type="radio"/></td>
+                    <td><input name="asistencia-5" type="radio"/></td>
+                  </tr>
+                  <tr>
+                    <td>Daniela Ramírez</td>
+                    <td><input checked="" name="asistencia-6" type="radio"/></td>
+                    <td><input name="asistencia-6" type="radio"/></td>
+                    <td><input name="asistencia-6" type="radio"/></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="acciones-formulario">
+              <button class="btn-principal" type="button">Guardar asistencia</button>
+            </div>
+          </div>
+          <div class="tarjeta" id="tarjeta-revision-de-justificantes" style="display: none;">
+            <div class="encabezado-tarjeta">
+              <h2>Revisión de justificantes</h2>
+              <p>Revisa los justificantes de falta enviados por los alumnos de tu taller.</p>
+            </div>
+            <div class="tabla-contenedor">
+              <table class="tabla-estudiante">
+                <thead>
+                  <tr>
+                    <th>Alumno</th>
+                    <th>Fecha de falta</th>
+                    <th>Justificante</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Andrea Martínez</td>
+                    <td>12/10/2026</td>
+                    <td><button class="btn-ver">Constancia médica.pdf</button></td>
+                    <td><span class="estado pendiente">Pendiente</span></td>
+                  </tr>
+                  <tr>
+                    <td>Ricardo Sánchez</td>
+                    <td>15/10/2026</td>
+                    <td><button class="btn-ver">Comprobante de cita.pdf</button></td>
+                    <td><span class="estado pendiente">Pendiente</span></td>
+                  </tr>
+                  <tr>
+                    <td>Daniela Ramírez</td>
+                    <td>08/10/2026</td>
+                    <td><button class="btn-ver">Aviso de familiar.pdf</button></td>
+                    <td><span class="estado presente">Aceptado</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="panel-decision">
+              <h3>Decisión del instructor</h3>
+              <form class="formulario" method="post">
+                <label>Selecciona el resultado</label>
+                <select>
+                  <option>Selecciona una opción</option>
+                  <option>Aceptar justificante</option>
+                  <option>Rechazar justificante</option>
+                </select>
+                <label>Observaciones</label>
+                <textarea placeholder="Escribe alguna observación" rows="3"></textarea>
+                <div class="acciones-formulario">
+                  <button class="btn-principal" type="submit">Registrar decisión</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="tarjeta" id="tarjeta-lista-de-alumnos-que-tienen-constancia" style="display: none;">
+            <div class="encabezado-tarjeta">
+              <h2>Alumnos con constancia</h2>
+              <p>Consulta las constancias que han sido otorgadas a los alumnos de tu taller.</p>
+            </div>
+            <div class="tabla-contenedor">
+              <table class="tabla-estudiante tabla-constancias-alumnos">
+                <thead>
+                  <tr>
+                    <th>Matrícula</th>
+                    <th>Nombre del alumno</th>
+                    <th>Taller</th>
+                    <th>Fecha de emisión</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>20241002</td>
+                    <td>Andrea Martínez</td>
+                    <td>Diseño y dibujo artístico</td>
+                    <td>Octubre 2026</td>
+                    <td>
+                      <div class="acciones-constancia">
+                        <button class="btn-ver">Ver</button>
+                        <button class="btn-imprimir">Imprimir</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>20241004</td>
+                    <td>Fernanda López</td>
+                    <td>Diseño y dibujo artístico</td>
+                    <td>Octubre 2026</td>
+                    <td>
+                      <div class="acciones-constancia">
+                        <button class="btn-ver">Ver</button>
+                        <button class="btn-imprimir">Imprimir</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>20241006</td>
+                    <td>Daniela Ramírez</td>
+                    <td>Diseño y dibujo artístico</td>
+                    <td>Octubre 2026</td>
+                    <td>
+                      <div class="acciones-constancia">
+                        <button class="btn-ver">Ver</button>
+                        <button class="btn-imprimir">Imprimir</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>20241008</td>
+                    <td>Roberto Hernández</td>
+                    <td>Diseño y dibujo artístico</td>
+                    <td>Octubre 2026</td>
+                    <td>
+                      <div class="acciones-constancia">
+                        <button class="btn-ver">Ver</button>
+                        <button class="btn-imprimir">Imprimir</button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script>
+      const opciones = document.querySelectorAll(".opcion");
+      const titulo = document.getElementById("titulo");
+      const seccion = document.getElementById("seccion");
+      const tarjetas = document.querySelectorAll(".tarjeta");
+      // convertir nombre de la seccion en un id para las tarjetas
+      function convertirASlug(texto) {
+        return texto
+          .toLowerCase() // minusculas
+          .normalize("NFD") // quitar acento
+          .replace(/[\u0300-\u036f]/g, "") // quitar acento
+          .replace(/[^a-z0-9]+/g, "-") // cambiar espacios por guiones
+          .replace(/^-|-$/g, ""); // eliminar guion al final
+      }
+      // Detectar seleccion
+      opciones.forEach((opcion) => {
+        opcion.addEventListener("click", function (event) {
+          event.preventDefault();
+          // encontrar tarjeta seleccionada
+          const nombre = this.dataset.titulo;
+          const idTarjeta = "tarjeta-" + convertirASlug(nombre);
+          // cambiar titulo a la tarjeta seleccionada
+          titulo.textContent = nombre;
+          seccion.textContent = nombre;
+          // oculta todas las tarjetas
+          tarjetas.forEach((tarjeta) => {
+            tarjeta.style.display = "none";
+          });
+          // muestra solo la tarjeta seleccionada
+          const tarjetaSeleccionada = document.getElementById(idTarjeta);
+          if (tarjetaSeleccionada) {
+            tarjetaSeleccionada.style.display = "block";
+          }
+          // cambiar color a la tarjeta seleccionada
+          opciones.forEach((elemento) => elemento.classList.remove("activa"));
+          this.classList.add("activa");
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -17,14 +17,15 @@
         <h2>Inicio de sesión</h2>
         <p>Ingresa tus datos para consultar tus talleres y avance.</p>
 
-        <form action="alumno.html" method="get">
-            <label>Matrícula o usuario</label>
-            <input type="text" required placeholder="Ingresa tu matrícula o usuario">
+        <form data-auth-form="login" data-role="alumno">
+            <label for="identificador">Matrícula o correo electrónico</label>
+            <input id="identificador" name="identifier" type="text" required placeholder="Ingresa tu matrícula o correo">
 
-            <label>Contraseña</label>
-            <input type="password" required placeholder="Ingresa tu contraseña">
+            <label for="contrasena">Contraseña</label>
+            <input id="contrasena" name="password" type="password" required placeholder="Ingresa tu contraseña">
 
-            <button type="submit" onclick="window.location.href='alumno.html'">Ingresar como alumno</button>
+            <p class="auth-message" role="alert" hidden></p>
+            <button type="submit">Ingresar como alumno</button>
         </form>
 
         <p>¿No tienes cuenta? <a href="registro_alumno.html">Regístrate aquí</a></p>
@@ -32,5 +33,6 @@
     </div>
 </main>
 
+<script src="auth.js"></script>
 </body>
 </html>

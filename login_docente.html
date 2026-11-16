@@ -17,20 +17,22 @@
         <h2>Inicio de sesión</h2>
         <p>Ingresa tus datos para administrar tu taller.</p>
 
-        <form action="docente.html" method="get">
-            <label>Usuario o identificación</label>
-            <input type="text" required placeholder="Ingresa tu usuario">
+        <form data-auth-form="login" data-role="instructor">
+            <label for="identificador">Identificación o correo electrónico</label>
+            <input id="identificador" name="identifier" type="text" required placeholder="Ingresa tu identificación o correo">
 
-            <label>Contraseña</label>
-            <input type="password" required placeholder="Ingresa tu contraseña">
+            <label for="contrasena">Contraseña</label>
+            <input id="contrasena" name="password" type="password" required placeholder="Ingresa tu contraseña">
 
-            <button type="submit" onclick="window.location.href='instructor.html'">Ingresar como Instructor</button>
+            <p class="auth-message" role="alert" hidden></p>
+            <button type="submit">Ingresar como Instructor</button>
         </form>
 
-        <p>¿No tienes cuenta? <a href="registro-docente.html">Regístrate aquí</a></p>
+        <p>¿No tienes cuenta? <a href="registro_docente.html">Regístrate aquí</a></p>
         <a href="indexMenu.html">Regresar al inicio</a>
     </div>
 </main>
 
+<script src="auth.js"></script>
 </body>
 </html>

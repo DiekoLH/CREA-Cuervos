@@ -6,7 +6,7 @@
     <title>CREA Cuervos - Estudiante</title>
     <link href="style.css" rel="stylesheet" />
   </head>
-  <body>
+  <body data-auth-role="alumno">
     <div class="contenedor">
       <aside class="sidebar">
         <div class="logo">
@@ -47,14 +47,15 @@
               </a>
             </summary>
           </details>
+          <a class="opcion" data-titulo="Cerrar sesión" href="indexMenu.html" data-logout>Cerrar sesión</a>
         </nav>
       </aside>
       <main class="principal">
         <header class="barra-superior">
           <span id="seccion">Datos del Alumno</span>
           <div class="usuario">
-            <span>Paola Jimenez</span>
-            <div class="avatar">PJ</div>
+            <span data-auth-name>Alumno</span>
+            <div class="avatar" data-auth-initials>AL</div>
           </div>
         </header>
         <section class="contenido">
@@ -70,24 +71,24 @@
             </div>
             <div class="perfil-usuario">
               <div class="perfil-encabezado">
-                <div class="avatar-usuario">PJ</div>
+                <div class="avatar-usuario" data-auth-initials>AL</div>
                 <div>
-                  <h3>Paola Jimenez</h3>
+                  <h3 data-auth-name>Alumno</h3>
                   <span>Estudiante</span>
                 </div>
               </div>
               <div class="datos-usuario">
                 <div class="dato">
                   <label>Nombre completo</label>
-                  <p>Paola Jimenez</p>
+                  <p data-auth-name>Alumno</p>
                 </div>
                 <div class="dato">
                   <label>Matrícula</label>
-                  <p>20241001</p>
+                  <p data-auth-identifier>-</p>
                 </div>
                 <div class="dato">
                   <label>Correo electrónico</label>
-                  <p>paola.jimenez@utvt.edu.mx</p>
+                  <p data-auth-email>-</p>
                 </div>
                 <div class="dato">
                   <label>Carrera</label>
@@ -502,5 +503,6 @@
         mensajeEditarInformacion.style.display = "block";
       });
     </script>
+    <script src="auth.js"></script>
   </body>
 </html>

@@ -57,6 +57,12 @@ form {
   flex-direction: column;
   gap: 8px;
 }
+.auth-message {
+  color: #a12622;
+  font-size: 13px;
+  line-height: 1.4;
+  margin-top: 8px;
+}
 label {
   font-size: 13px;
   font-weight: bold;

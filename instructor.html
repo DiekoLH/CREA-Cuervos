@@ -6,7 +6,7 @@
     <title>CREA Cuervos</title>
     <link href="style.css" rel="stylesheet" />
   </head>
-  <body>
+  <body data-auth-role="instructor">
     <div class="contenedor">
       <aside class="sidebar">
         <div class="logo">
@@ -49,14 +49,15 @@
               </a>
             </summary>
           </details>
+          <a class="opcion" data-titulo="Cerrar sesión" href="indexMenu.html" data-logout>Cerrar sesión</a>
         </nav>
       </aside>
       <main class="principal">
         <header class="barra-superior">
           <span id="seccion">Datos del Instructor</span>
           <div class="usuario">
-            <span>Mauricio Torres</span>
-            <div class="avatar">MT</div>
+            <span data-auth-name>Instructor</span>
+            <div class="avatar" data-auth-initials>IN</div>
           </div>
         </header>
         <section class="contenido">
@@ -67,33 +68,33 @@
             style="display: block"
           >
             <div class="encabezado-tarjeta">
-              <h2>Bienvenido, Mauricio Torres</h2>
+              <h2>Bienvenido, <span data-auth-name>Instructor</span></h2>
               <p>Consulta tu información personal y escolar.</p>
             </div>
             <div class="perfil-usuario">
               <div class="perfil-encabezado">
-                <div class="avatar-usuario">MT</div>
+                <div class="avatar-usuario" data-auth-initials>IN</div>
                 <div>
-                  <h3>Mauricio Torres</h3>
+                  <h3 data-auth-name>Instructor</h3>
                   <span>Instructor</span>
                 </div>
               </div>
               <div class="datos-usuario">
                 <div class="dato">
                   <label>Nombre completo</label>
-                  <p>Mauricio Torres Bernal</p>
+                  <p data-auth-name>Instructor</p>
                 </div>
                 <div class="dato">
                   <label>Matrícula</label>
-                  <p>20241001</p>
+                  <p data-auth-identifier>-</p>
                 </div>
                 <div class="dato">
                   <label>Correo electrónico</label>
-                  <p>mauricio.torres@utvt.edu.mx</p>
+                  <p data-auth-email>-</p>
                 </div>
                 <div class="dato">
                   <label>Tallere(s) a Cargo</label>
-                  <p>Artes Visuales</p>
+                  <p data-auth-workshop>No especificado</p>
                 </div>
                 <div class="dato">
                   <label>Rol de usuario</label>
@@ -1073,5 +1074,6 @@
         mensajeEditarInformacion.style.display = "block";
       });
     </script>
+    <script src="auth.js"></script>
   </body>
 </html>

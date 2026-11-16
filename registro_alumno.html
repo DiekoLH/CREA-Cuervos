@@ -16,23 +16,22 @@
     <div>
         <h2>Crear cuenta de estudiante</h2>
 
-        <form data-auth-form="register" data-role="alumno">
-            <label for="nombre">Nombre completo</label>
-            <input id="nombre" name="name" type="text" required placeholder="Nombre y apellidos">
+        <form action="login_alumno.html" method="get">
+            <label>Nombre completo</label>
+            <input type="text" required placeholder="Nombre y apellidos">
 
-            <label for="identificador">Matrícula o número de control</label>
-            <input id="identificador" name="identifier" type="text" required placeholder="Ingresa tu matrícula">
+            <label>Matrícula o número de control</label>
+            <input type="text" required placeholder="Ingresa tu matrícula">
 
-            <label for="correo">Correo electrónico</label>
-            <input id="correo" name="email" type="email" required placeholder="Correo electrónico">
+            <label>Correo electrónico</label>
+            <input type="email" required placeholder="Correo electrónico">
 
-            <label for="contrasena">Contraseña</label>
-            <input id="contrasena" name="password" type="password" minlength="8" required placeholder="Crea una contraseña">
+            <label>Contraseña</label>
+            <input type="password" required placeholder="Crea una contraseña">
 
-            <label for="confirmar-contrasena">Confirmar contraseña</label>
-            <input id="confirmar-contrasena" name="passwordConfirmation" type="password" minlength="8" required placeholder="Confirma tu contraseña">
+            <label>Confirmar contraseña</label>
+            <input type="password" required placeholder="Confirma tu contraseña">
 
-            <p class="auth-message" role="alert" hidden></p>
             <button type="submit">Registrar alumno</button>
         </form>
 
@@ -41,6 +40,5 @@
     </div>
 </main>
 
-<script src="auth.js"></script>
 </body>
 </html>

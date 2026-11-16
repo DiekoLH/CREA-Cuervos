@@ -82,6 +82,33 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 30px;
+      gap: 12px;
+    }
+    .barra-superior-izquierda {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .menu-toggle {
+      display: none;
+      border: 1px solid #dfeae7;
+      background: #f3f8f6;
+      border-radius: 10px;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 2px;
+      background: #0f5d50;
     }
     .usuario {
       display: flex;
@@ -988,6 +1015,156 @@ details[open] > .subopciones {
   .galeria { grid-template-columns: 1fr; }
   .hero { height: 260px; }
   .hero-texto h1 { font-size: 32px; }
+  .grid-progreso,
+  .contenedor-eventos,
+  .grid-texto {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .contenedor {
+    position: relative;
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 30;
+    width: min(82vw, 310px);
+    min-height: 100vh;
+    padding: 18px 14px 20px;
+    transform: translateX(-105%);
+    transition: transform 0.25s ease;
+    box-shadow: 0 18px 40px rgba(7, 84, 71, 0.28);
+  }
+
+  .sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  body.menu-open::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(9, 38, 33, 0.45);
+    z-index: 20;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #dfeae7;
+    border-radius: 10px;
+    background: #f3f8f6;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: #0f5d50;
+  }
+
+  .barra-superior-izquierda {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .subopciones {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .barra-superior {
+    padding: 0 18px;
+  }
+
+  .contenido {
+    padding: 22px 16px 30px;
+  }
+
+  .tarjeta {
+    padding: 22px 18px;
+  }
+
+  .grid-talleres {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  nav {
+    grid-template-columns: 1fr;
+  }
+
+  .logo {
+    padding-bottom: 18px;
+    font-size: 16px;
+  }
+
+  .hero {
+    height: 220px;
+  }
+
+  .hero-texto {
+    padding: 0 18px;
+  }
+
+  .hero-texto h1 {
+    font-size: 26px;
+    letter-spacing: 1px;
+  }
+
+  .hero-texto p {
+    font-size: 14px;
+  }
+
+  #tarjeta-inicio {
+    padding: 32px 16px;
+  }
+
+  .botones-acceso,
+  .acciones-formulario,
+  .acciones-superpuestas {
+    flex-direction: column;
+  }
+
+  .btn-registro,
+  .btn-login,
+  .acciones-formulario button,
+  .acciones-superpuestas button,
+  .acciones-superpuestas .btn-principal {
+    width: 100%;
+  }
+
+  .tabla-contenedor {
+    border-radius: 10px;
+  }
+
+  .tabla-horarios th,
+  .tabla-horarios td,
+  .tabla-estudiante th,
+  .tabla-estudiante td {
+    padding: 10px 12px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -997,12 +1174,7 @@ details[open] > .subopciones {
   }
 }
 
-/* ---------- Tarjetas Superpuestas ---------- */
-
-/* ==========================================
    TARJETAS SUPERPUESTAS REUTILIZABLES
-========================================== */
-
 .tarjeta-superpuesta {
     display: none;
     position: fixed;

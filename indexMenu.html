@@ -46,7 +46,14 @@
       <!-- BARRA SUPERIOR -->
       <main class="principal">
         <header class="barra-superior">
-          <span id="seccion">Inicio</span>
+          <div class="barra-superior-izquierda">
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Abrir menú">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <span id="seccion">Inicio</span>
+          </div>
         </header>
 
         <!-- CONTENIDO DE CADA TARJETA -->
@@ -554,8 +561,47 @@
           // cambiar color a la tarjeta seleccionada
           opciones.forEach((elemento) => elemento.classList.remove("activa"));
           this.classList.add("activa");
+
+          if (window.innerWidth <= 760) {
+            document.querySelector(".sidebar").classList.remove("is-open");
+            document.body.classList.remove("menu-open");
+            document.querySelector(".menu-toggle").setAttribute("aria-expanded", "false");
+          }
         });
       });
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const sidebar = document.querySelector(".sidebar");
+
+      if (menuToggle && sidebar) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = sidebar.classList.toggle("is-open");
+          document.body.classList.toggle("menu-open", isOpen);
+          menuToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        document.addEventListener("click", (event) => {
+          const isMobile = window.innerWidth <= 760;
+          if (!isMobile) return;
+
+          const clickedToggle = menuToggle.contains(event.target);
+          const clickedSidebar = sidebar.contains(event.target);
+
+          if (!clickedToggle && !clickedSidebar && sidebar.classList.contains("is-open")) {
+            sidebar.classList.remove("is-open");
+            document.body.classList.remove("menu-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 760) {
+            sidebar.classList.remove("is-open");
+            document.body.classList.remove("menu-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
     </script>
 
     <script>

@@ -6,7 +6,7 @@
     <title>CREA Cuervos - Estudiante</title>
     <link href="style.css" rel="stylesheet" />
   </head>
-  <body data-auth-role="alumno">
+  <body>
     <div class="contenedor">
       <aside class="sidebar">
         <div class="logo">
@@ -47,15 +47,21 @@
               </a>
             </summary>
           </details>
-          <a class="opcion" data-titulo="Cerrar sesión" href="indexMenu.html" data-logout>Cerrar sesión</a>
         </nav>
       </aside>
       <main class="principal">
         <header class="barra-superior">
-          <span id="seccion">Datos del Alumno</span>
+          <div class="barra-superior-izquierda">
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Abrir menú">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <span id="seccion">Datos del Alumno</span>
+          </div>
           <div class="usuario">
-            <span data-auth-name>Alumno</span>
-            <div class="avatar" data-auth-initials>AL</div>
+            <span>Paola Jimenez</span>
+            <div class="avatar">PJ</div>
           </div>
         </header>
         <section class="contenido">
@@ -71,24 +77,24 @@
             </div>
             <div class="perfil-usuario">
               <div class="perfil-encabezado">
-                <div class="avatar-usuario" data-auth-initials>AL</div>
+                <div class="avatar-usuario">PJ</div>
                 <div>
-                  <h3 data-auth-name>Alumno</h3>
+                  <h3>Paola Jimenez</h3>
                   <span>Estudiante</span>
                 </div>
               </div>
               <div class="datos-usuario">
                 <div class="dato">
                   <label>Nombre completo</label>
-                  <p data-auth-name>Alumno</p>
+                  <p>Paola Jimenez</p>
                 </div>
                 <div class="dato">
                   <label>Matrícula</label>
-                  <p data-auth-identifier>-</p>
+                  <p>20241001</p>
                 </div>
                 <div class="dato">
                   <label>Correo electrónico</label>
-                  <p data-auth-email>-</p>
+                  <p>paola.jimenez@utvt.edu.mx</p>
                 </div>
                 <div class="dato">
                   <label>Carrera</label>
@@ -435,8 +441,47 @@
           // cambiar color a la tarjeta seleccionada
           opciones.forEach((elemento) => elemento.classList.remove("activa"));
           this.classList.add("activa");
+
+          if (window.innerWidth <= 760) {
+            document.querySelector(".sidebar").classList.remove("is-open");
+            document.body.classList.remove("menu-open");
+            document.querySelector(".menu-toggle").setAttribute("aria-expanded", "false");
+          }
         });
       });
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const sidebar = document.querySelector(".sidebar");
+
+      if (menuToggle && sidebar) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = sidebar.classList.toggle("is-open");
+          document.body.classList.toggle("menu-open", isOpen);
+          menuToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        document.addEventListener("click", (event) => {
+          const isMobile = window.innerWidth <= 760;
+          if (!isMobile) return;
+
+          const clickedToggle = menuToggle.contains(event.target);
+          const clickedSidebar = sidebar.contains(event.target);
+
+          if (!clickedToggle && !clickedSidebar && sidebar.classList.contains("is-open")) {
+            sidebar.classList.remove("is-open");
+            document.body.classList.remove("menu-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 760) {
+            sidebar.classList.remove("is-open");
+            document.body.classList.remove("menu-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
     </script>
     <!-- FUNCIONAMIENTO DEL VISOR DE CONSTANCIAS -->
     <script>
@@ -503,6 +548,5 @@
         mensajeEditarInformacion.style.display = "block";
       });
     </script>
-    <script src="auth.js"></script>
   </body>
 </html>

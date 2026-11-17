@@ -22,6 +22,9 @@
             href="#"
             >Visualizar lista de asistencia</a
           >
+          <a class="opcion" data-titulo="Inscripción" href="#">
+            Inscripción a talleres
+          </a>
           <details>
             <summary>Constancias</summary>
             <div class="subopciones">
@@ -257,6 +260,204 @@
                   class="categoria-evento"
                 >
                   Información actualizada correctamente. ✔
+                </p>
+              </form>
+            </div>
+          </div>
+          <!-- TARJETA: INSCRIPCIÓN A TALLERES -->
+
+          <div
+            class="tarjeta"
+            id="tarjeta-inscripcion"
+            style="display: none"
+          >
+            <div class="encabezado-tarjeta">
+              <h2>Inscripción a talleres</h2>
+              <p>
+                Consulta los talleres disponibles y regístrate en el que más te
+                interese.
+              </p>
+            </div>
+            <div class="tabla-contenedor">
+              <table class="tabla-estudiante tabla-inscripcion">
+                <thead>
+                  <tr>
+                    <th>Taller</th>
+                    <th>Categoría</th>
+                    <th>Instructor</th>
+                    <th>Días</th>
+                    <th>Horario</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Danza y baile</strong></td>
+                    <td>Cultural</td>
+                    <td>José Pablo Hernández Sánchez</td>
+                    <td>Lunes, martes y jueves</td>
+                    <td>Consultar horarios</td>
+                    <td>
+                      <button type="button" class="btn-registrarse">
+                        Registrarse
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Teatro</strong></td>
+                    <td>Cultural</td>
+                    <td>Aldo Colín Suárez</td>
+                    <td>Martes, miércoles y viernes</td>
+                    <td>Consultar horarios</td>
+                    <td>
+                      <button type="button" class="btn-registrarse">
+                        Registrarse
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Música</strong></td>
+                    <td>Cultural</td>
+                    <td>José Arturo Guerra Pérez</td>
+                    <td>Lunes, miércoles y jueves</td>
+                    <td>Consultar horarios</td>
+                    <td>
+                      <button type="button" class="btn-registrarse">
+                        Registrarse
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Ortografía y redacción</strong></td>
+                    <td>Cultural</td>
+                    <td>Giovanna Alejandra Garduño Zepeda</td>
+                    <td>Martes, miércoles y jueves</td>
+                    <td>Consultar horarios</td>
+                    <td>
+                      <button type="button" class="btn-registrarse">
+                        Registrarse
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Artes visuales</strong></td>
+                    <td>Cultural</td>
+                    <td>Mauricio Torres Bernal</td>
+                    <td>Lunes, miércoles y viernes</td>
+                    <td>Consultar horarios</td>
+                    <td>
+                      <button type="button" class="btn-registrarse">
+                        Registrarse
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Fútbol soccer</strong></td>
+                    <td>Deportivo</td>
+                    <td>Rubén Salvador Martínez Reyes</td>
+                    <td>Martes a viernes</td>
+                    <td>Consultar horarios</td>
+                    <td>
+                      <button type="button" class="btn-registrarse">
+                        Registrarse
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Voleibol</strong></td>
+                    <td>Deportivo</td>
+                    <td>Patricia Rico Peñaloza</td>
+                    <td>Lunes, martes, miércoles y viernes</td>
+                    <td>Consultar horarios</td>
+                    <td>
+                      <button type="button" class="btn-registrarse">
+                        Registrarse
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- TARJETA SUPERPUESTA: CONFIRMAR INSCRIPCIÓN -->
+          <div id="visor-inscripcion" class="tarjeta-superpuesta">
+            <div class="contenido-superpuesto">
+              <div class="encabezado-superpuesto">
+                <h2>Confirmar inscripción</h2>
+                <button
+                  type="button"
+                  id="cerrar-inscripcion"
+                  class="btn-cerrar-superpuesto"
+                >
+                  ✕ Cerrar
+                </button>
+              </div>
+              <form id="formulario-inscripcion" class="formulario">
+                <p style="color: #718780; font-size: 14px">
+                  Revisa que los datos de tu inscripción sean correctos.
+                </p>
+                <h3>Datos del alumno</h3>
+                <div class="datos-usuario">
+                  <div class="dato">
+                    <label>Nombre completo</label>
+                    <p>Paola Jimenez</p>
+                  </div>
+                  <div class="dato">
+                    <label>Matrícula</label>
+                    <p>20241001</p>
+                  </div>
+                  <div class="dato">
+                    <label>Grupo actual</label>
+                    <p>DSM-41</p>
+                  </div>
+                  <div class="dato">
+                    <label>Correo electrónico</label>
+                    <p>paola.jimenez@utvt.edu.mx</p>
+                  </div>
+                </div>
+                <h3 style="margin-top: 15px">Datos del taller</h3>
+                <div class="datos-usuario">
+                  <div class="dato">
+                    <label>Taller seleccionado</label>
+                    <p id="inscripcion-taller"></p>
+                  </div>
+                  <div class="dato">
+                    <label>Categoría</label>
+                    <p id="inscripcion-categoria"></p>
+                  </div>
+                  <div class="dato">
+                    <label>Instructor</label>
+                    <p id="inscripcion-instructor"></p>
+                  </div>
+                  <div class="dato">
+                    <label>Días</label>
+                    <p id="inscripcion-dias"></p>
+                  </div>
+                  <div class="dato">
+                    <label>Horario</label>
+                    <p id="inscripcion-horario"></p>
+                  </div>
+                </div>
+                <div class="acciones-superpuestas">
+                  <button
+                    type="submit"
+                    class="btn-principal"
+                    id="btn-confirmar-inscripcion"
+                  >
+                    Confirmar inscripción
+                  </button>
+                </div>
+                <p
+                  id="mensaje-inscripcion"
+                  style="
+                    display: none;
+                    font-size: 18px;
+                    font-weight: bold;
+                    font-style: italic;
+                  "
+                  class="categoria-evento"
+                >
+                  ¡Tu inscripción al taller se ha realizado correctamente! ✔
                 </p>
               </form>
             </div>
@@ -546,6 +747,56 @@
         event.preventDefault();
 
         mensajeEditarInformacion.style.display = "block";
+      });
+    </script>
+
+    <!-- FUNCIONAMIENTO DE INSCRIPCIÓN A TALLERES -->
+
+    <script>
+      const botonesRegistro = document.querySelectorAll(".btn-registrarse");
+      const visorInscripcion = document.getElementById("visor-inscripcion");
+      const cerrarInscripcion = document.getElementById("cerrar-inscripcion");
+      const formularioInscripcion = document.getElementById(
+        "formulario-inscripcion",
+      );
+      const mensajeInscripcion = document.getElementById("mensaje-inscripcion");
+      const botonConfirmarInscripcion = document.getElementById(
+        "btn-confirmar-inscripcion",
+      );
+
+      // Abrir tarjeta y mostrar los datos del taller seleccionado
+      botonesRegistro.forEach(function (boton) {
+        boton.addEventListener("click", function () {
+          const fila = this.closest("tr");
+          const datos = fila.querySelectorAll("td");
+
+          document.getElementById("inscripcion-taller").textContent =
+            datos[0].textContent.trim();
+          document.getElementById("inscripcion-categoria").textContent =
+            datos[1].textContent.trim();
+          document.getElementById("inscripcion-instructor").textContent =
+            datos[2].textContent.trim();
+          document.getElementById("inscripcion-dias").textContent =
+            datos[3].textContent.trim();
+          document.getElementById("inscripcion-horario").textContent =
+            datos[4].textContent.trim();
+
+          mensajeInscripcion.style.display = "none";
+          botonConfirmarInscripcion.style.display = "block";
+          visorInscripcion.style.display = "flex";
+        });
+      });
+
+      // Cerrar tarjeta
+      cerrarInscripcion.addEventListener("click", function () {
+        visorInscripcion.style.display = "none";
+      });
+
+      // Confirmar inscripción
+      formularioInscripcion.addEventListener("submit", function (event) {
+        event.preventDefault();
+        mensajeInscripcion.style.display = "block";
+        botonConfirmarInscripcion.style.display = "none";
       });
     </script>
   </body>

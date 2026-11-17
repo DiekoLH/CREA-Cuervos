@@ -1173,8 +1173,7 @@ details[open] > .subopciones {
     transition: none !important;
   }
 }
-
-   TARJETAS SUPERPUESTAS REUTILIZABLES
+/*TARJETAS SUPERPUESTAS */
 .tarjeta-superpuesta {
     display: none;
     position: fixed;

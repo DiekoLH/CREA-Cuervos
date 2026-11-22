@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CREA Cuervos - Estudiante</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="contenedor">
+      <aside class="sidebar">
+        <div class="logo">
+          <span>CREA Cuervos - Alumno</span>
+        </div>
+        <nav>
+          <a class="opcion activa" data-titulo="Datos de usuario" href="#"
+            >Datos del Alumno</a
+          >
+          <a
+            class="opcion"
+            data-titulo="Visualizar lista de asistencia"
+            href="#"
+            >Visualizar lista de asistencia</a
+          >
+          <a class="opcion" data-titulo="Inscripción" href="#">
+            Inscripción a talleres
+          </a>
+          <details>
+            <summary>Constancias</summary>
+            <div class="subopciones">
+              <a class="opcion" data-titulo="Ver mis constancias" href="#"
+                >Ver mis constancias</a
+              >
+            </div>
+          </details>
+          <details>
+            <summary>Progreso</summary>
+            <div class="subopciones">
+              <a class="opcion" data-titulo="Taller actual y avance" href="#"
+                >Taller actual y avance</a
+              >
+            </div>
+          </details>
+          <details>
+            <summary>
+              <a
+                style="text-decoration: none; color: aliceblue"
+                href="indexMenu.html"
+                ><b>← Volver al Inicio</b>
+              </a>
+            </summary>
+          </details>
+        </nav>
+      </aside>
+      <main class="principal">
+        <header class="barra-superior">
+          <div class="barra-superior-izquierda">
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Abrir menú">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <span id="seccion">Datos del Alumno</span>
+          </div>
+          <div class="usuario">
+            <span>Paola Jimenez</span>
+            <div class="avatar">PJ</div>
+          </div>
+        </header>
+        <section class="contenido">
+          <h1 id="titulo">Datos del Alumno</h1>
+          <div
+            class="tarjeta"
+            id="tarjeta-datos-de-usuario"
+            style="display: block"
+          >
+            <div class="encabezado-tarjeta">
+              <h2>Datos del Alumno</h2>
+              <p>Consulta tu información personal y escolar.</p>
+            </div>
+            <div class="perfil-usuario">
+              <div class="perfil-encabezado">
+                <div class="avatar-usuario">PJ</div>
+                <div>
+                  <h3>Paola Jimenez</h3>
+                  <span>Estudiante</span>
+                </div>
+              </div>
+              <div class="datos-usuario">
+                <div class="dato">
+                  <label>Nombre completo</label>
+                  <p>Paola Jimenez</p>
+                </div>
+                <div class="dato">
+                  <label>Matrícula</label>
+                  <p>20241001</p>
+                </div>
+                <div class="dato">
+                  <label>Correo electrónico</label>
+                  <p>paola.jimenez@utvt.edu.mx</p>
+                </div>
+                <div class="dato">
+                  <label>Carrera</label>
+                  <p>Desarrollo de Software</p>
+                </div>
+                <div class="dato">
+                  <label>Grupo Actual</label>
+                  <p>DSM-41</p>
+                </div>
+                <div class="dato">
+                  <label>Rol de usuario</label>
+                  <p>Estudiante</p>
+                </div>
+              </div>
+              <div class="acciones-perfil">
+                <button
+                  type="button"
+                  class="btn-principal"
+                  id="abrir-editar-informacion"
+                >
+                  Editar información
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tarjeta"
+            id="tarjeta-visualizar-lista-de-asistencia"
+            style="display: none"
+          >
+            <div class="encabezado-tarjeta">
+              <h2>Mi asistencia</h2>
+              <p>Consulta tu registro de asistencia al taller.</p>
+            </div>
+            <div class="resumen-asistencia">
+              <div>
+                <span>Asistencia general</span>
+                <strong>85%</strong>
+              </div>
+              <div class="barra-progreso">
+                <div style="width: 85%"></div>
+              </div>
+              <small>17 de 20 sesiones asistidas</small>
+            </div>
+            <h3>Registro de asistencia</h3>
+            <div class="tabla-contenedor">
+              <table class="tabla-estudiante">
+                <thead>
+                  <tr>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                    <th>Porcentaje</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>05/10/2026</td>
+                    <td><span class="estado presente">Presente</span></td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td>08/10/2026</td>
+                    <td><span class="estado presente">Presente</span></td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td>12/10/2026</td>
+                    <td><span class="estado ausente">Ausente</span></td>
+                    <td>0%</td>
+                  </tr>
+                  <tr>
+                    <td>15/10/2026</td>
+                    <td><span class="estado presente">Presente</span></td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td>19/10/2026</td>
+                    <td><span class="estado presente">Presente</span></td>
+                    <td>100%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TARJETA SUPERPUESTA: EDITAR INFORMACIÓN -->
+
+          <div id="tarjeta-editar-informacion" class="tarjeta-superpuesta">
+            <div class="contenido-superpuesto">
+              <div class="encabezado-superpuesto">
+                <h2>Editar información</h2>
+
+                <button
+                  type="button"
+                  id="cerrar-editar-informacion"
+                  class="btn-cerrar-superpuesto"
+                >
+                  ✕ Cerrar
+                </button>
+              </div>
+
+              <form id="formulario-editar-informacion" class="formulario">
+                <p style="color: #718780; font-size: 14px; margin: 0">
+                  Actualiza tu correo electrónico y el grupo al que perteneces.
+                  Los demás datos de tu perfil no se pueden modificar.
+                </p>
+
+                <!-- Correo electrónico -->
+                <label for="editar-correo"> Correo electrónico </label>
+
+                <input
+                  type="email"
+                  id="editar-correo"
+                  value="paola.jimenez@utvtol.edu.mx"
+                  placeholder="Ingresa tu correo electrónico"
+                  required
+                />
+
+                <label for="editar-carrera"> Carrera </label>
+
+                <select id="editar-carrera" required>
+                  <option value="">Selecciona tu carrera</option>
+                  <option value="Paramedico" selected>Paramédico</option>
+                  <option value="Infraestructura de Redes">
+                    Infraestructura de Redes
+                  </option>
+                  <option value="Mecatronica">Mecatrónica</option>
+                  <option value="Procesos Productivos">
+                    Procesos Productivos
+                  </option>
+                </select>
+
+                <!-- Grupo actual -->
+                <label for="editar-grupo"> Grupo actual </label>
+
+                <select id="editar-grupo" required>
+                  <option value="">Selecciona tu grupo</option>
+                  <option value="DSM-41" selected>DSM-41</option>
+                  <option value="DSM-42">DSM-42</option>
+                  <option value="DSM-43">DSM-43</option>
+                  <option value="DSM-44">DSM-44</option>
+                </select>
+
+                <!-- Botón guardar -->
+                <div class="acciones-superpuestas">
+                  <button type="submit" class="btn-principal">
+                    Guardar cambios
+                  </button>
+                </div>
+
+                <!-- Mensaje de confirmación -->
+                <p
+                  id="mensaje-editar-informacion"
+                  style="
+                    display: none;
+                    font-size: 20px;
+                    font-weight: bold;
+                    font-style: italic;
+                  "
+                  class="categoria-evento"
+                >
+                  Información actualizada correctamente. ✔
+                </p>
+              </form>
+            </div>
+          </div>
+          <!-- TARJETA: INSCRIPCIÓN A TALLERES -->
+
+          <div
+            class="tarjeta"
+            id="tarjeta-inscripcion"
+            style="display: none"
+          >
+            <div class="encabezado-tarjeta">
+              <h2>Inscripción a talleres</h2>
+              <p>
+                Consulta los talleres disponibles y regístrate en el que más te
+                interese.
+              </p>
+            </div>
+            <div class="tabla-contenedor">
+              <table class="tabla-estudiante tabla-inscripcion">
+                <thead>
+                  <tr>
+                    <th>Taller</th>
+                    <th>Categoría</th>
+                    <th>Instructor</th>
+                    <th>Días</th>
+                    <th>Horario</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Danza y baile</strong></td>
+                    <td>Cultural</td>
+                    <td>José Pablo Hernández Sánchez</td>
+                    <td>Lunes, martes y jueves</td>
+                    <td>Consultar horarios</td>
+                    <td>
+                      <button type="button" class="btn-registrarse">
+                        Registrarse
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Teatro</strong></td>
+                    <td>Cultural</td>
+                    <td>Aldo Colín Suárez</td>
+                    <td>Martes, miércoles y viernes</td>
+                    <td>Consultar horarios</td>
+                    <td>
+                      <button type="button" class="btn-registrarse">
+                        Registrarse
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Música</strong></td>
+                    <td>Cultural</td>
+                    <td>José Arturo Guerra Pérez</td>
+                    <td>Lunes, miércoles y jueves</td>
+                    <td>Consultar horarios</td>
+                    <td>
+                      <button type="button" class="btn-registrarse">
+                        Registrarse
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Ortografía y redacción</strong></td>
+                    <td>Cultural</td>
+                    <td>Giovanna Alejandra Garduño Zepeda</td>
+                    <td>Martes, miércoles y jueves</td>
+                    <td>Consultar horarios</td>
+                    <td>
+                      <button type="button" class="btn-registrarse">
+                        Registrarse
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Artes visuales</strong></td>
+                    <td>Cultural</td>
+                    <td>Mauricio Torres Bernal</td>
+                    <td>Lunes, miércoles y viernes</td>
+                    <td>Consultar horarios</td>
+                    <td>
+                      <button type="button" class="btn-registrarse">
+                        Registrarse
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Fútbol soccer</strong></td>
+                    <td>Deportivo</td>
+                    <td>Rubén Salvador Martínez Reyes</td>
+                    <td>Martes a viernes</td>
+                    <td>Consultar horarios</td>
+                    <td>
+                      <button type="button" class="btn-registrarse">
+                        Registrarse
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Voleibol</strong></td>
+                    <td>Deportivo</td>
+                    <td>Patricia Rico Peñaloza</td>
+                    <td>Lunes, martes, miércoles y viernes</td>
+                    <td>Consultar horarios</td>
+                    <td>
+                      <button type="button" class="btn-registrarse">
+                        Registrarse
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- TARJETA SUPERPUESTA: CONFIRMAR INSCRIPCIÓN -->
+          <div id="visor-inscripcion" class="tarjeta-superpuesta">
+            <div class="contenido-superpuesto">
+              <div class="encabezado-superpuesto">
+                <h2>Confirmar inscripción</h2>
+                <button
+                  type="button"
+                  id="cerrar-inscripcion"
+                  class="btn-cerrar-superpuesto"
+                >
+                  ✕ Cerrar
+                </button>
+              </div>
+              <form id="formulario-inscripcion" class="formulario">
+                <p style="color: #718780; font-size: 14px">
+                  Revisa que los datos de tu inscripción sean correctos.
+                </p>
+                <h3>Datos del alumno</h3>
+                <div class="datos-usuario">
+                  <div class="dato">
+                    <label>Nombre completo</label>
+                    <p>Paola Jimenez</p>
+                  </div>
+                  <div class="dato">
+                    <label>Matrícula</label>
+                    <p>20241001</p>
+                  </div>
+                  <div class="dato">
+                    <label>Grupo actual</label>
+                    <p>DSM-41</p>
+                  </div>
+                  <div class="dato">
+                    <label>Correo electrónico</label>
+                    <p>paola.jimenez@utvt.edu.mx</p>
+                  </div>
+                </div>
+                <h3 style="margin-top: 15px">Datos del taller</h3>
+                <div class="datos-usuario">
+                  <div class="dato">
+                    <label>Taller seleccionado</label>
+                    <p id="inscripcion-taller"></p>
+                  </div>
+                  <div class="dato">
+                    <label>Categoría</label>
+                    <p id="inscripcion-categoria"></p>
+                  </div>
+                  <div class="dato">
+                    <label>Instructor</label>
+                    <p id="inscripcion-instructor"></p>
+                  </div>
+                  <div class="dato">
+                    <label>Días</label>
+                    <p id="inscripcion-dias"></p>
+                  </div>
+                  <div class="dato">
+                    <label>Horario</label>
+                    <p id="inscripcion-horario"></p>
+                  </div>
+                </div>
+                <div class="acciones-superpuestas">
+                  <button
+                    type="submit"
+                    class="btn-principal"
+                    id="btn-confirmar-inscripcion"
+                  >
+                    Confirmar inscripción
+                  </button>
+                </div>
+                <p
+                  id="mensaje-inscripcion"
+                  style="
+                    display: none;
+                    font-size: 18px;
+                    font-weight: bold;
+                    font-style: italic;
+                  "
+                  class="categoria-evento"
+                >
+                  ¡Tu inscripción al taller se ha realizado correctamente! ✔
+                </p>
+              </form>
+            </div>
+          </div>
+          <div
+            class="tarjeta"
+            id="tarjeta-ver-mis-constancias"
+            style="display: none"
+          >
+            <div class="encabezado-tarjeta">
+              <h2>Mis constancias</h2>
+              <p>Consulta y gestiona las constancias que has obtenido.</p>
+            </div>
+            <div class="tabla-contenedor">
+              <table class="tabla-estudiante">
+                <thead>
+                  <tr>
+                    <th>Constancia</th>
+                    <th>Cuatrimestre</th>
+                    <th>Fecha de emisión</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Introducción a la música</td>
+                    <td>Primero</td>
+                    <td>Marzo 2026</td>
+                    <td>
+                      <button type="button" class="btn-ver ver-mi-constancia">
+                        Ver
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Fundamentos del dibujo</td>
+                    <td>Primero</td>
+                    <td>Abril 2026</td>
+                    <td>
+                      <button type="button" class="btn-ver ver-mi-constancia">
+                        Ver
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Fotografía básica</td>
+                    <td>Segundo</td>
+                    <td>Agosto 2026</td>
+                    <td>
+                      <button type="button" class="btn-ver ver-mi-constancia">
+                        Ver
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TARJETA SUPERPUESTA: VER MI CONSTANCIA -->
+
+          <div id="visor-mi-constancia" class="tarjeta-superpuesta">
+            <div class="contenido-superpuesto contenido-superpuesto--documento">
+              <div class="encabezado-superpuesto">
+                <h2>Visualización de constancia</h2>
+
+                <button
+                  type="button"
+                  id="cerrar-mi-constancia"
+                  class="btn-cerrar-superpuesto"
+                >
+                  ✕ Cerrar
+                </button>
+              </div>
+
+              <iframe
+                id="pdf-mi-constancia"
+                src="imgs/constacia.pdf"
+                class="documento-superpuesto"
+              >
+              </iframe>
+            </div>
+          </div>
+          <div
+            class="tarjeta"
+            id="tarjeta-taller-actual-y-avance"
+            style="display: none"
+          >
+            <div class="encabezado-tarjeta">
+              <h2>Mi taller y progreso</h2>
+              <p>Consulta la información y el avance de tu taller actual.</p>
+            </div>
+            <div class="grid-progreso">
+              <!-- TARJETA DEL TALLER -->
+              <div class="tarjeta-progreso taller-principal">
+                <div class="icono-progreso">🎨</div>
+                <span class="etiqueta-taller">TALLER ACTUAL</span>
+                <h3>Diseño y dibujo artístico</h3>
+                <span class="estado presente">Inscrito</span>
+              </div>
+              <!-- TARJETA DEL INSTRUCTOR -->
+              <div class="tarjeta-progreso">
+                <div class="icono-progreso">👩‍🏫</div>
+                <h3>Instructor</h3>
+                <p>María González</p>
+                <small>Responsable del taller</small>
+              </div>
+              <!-- TARJETA DEL HORARIO -->
+              <div class="tarjeta-progreso">
+                <div class="icono-progreso">🕒</div>
+                <h3>Horario</h3>
+                <p>Lunes y miércoles</p>
+                <small>10:00 AM - 12:00 PM</small>
+              </div>
+              <!-- TARJETA DEL PERIODO -->
+              <div class="tarjeta-progreso">
+                <div class="icono-progreso">📅</div>
+                <h3>Periodo</h3>
+                <p>Septiembre - Diciembre</p>
+                <small>2026</small>
+              </div>
+              <!-- TARJETA DE ASISTENCIA -->
+              <div class="tarjeta-progreso tarjeta-asistencia">
+                <div class="icono-progreso">📊</div>
+                <h3>Porcentaje de asistencia</h3>
+                <div class="porcentaje-grande">85%</div>
+                <div class="barra-progreso">
+                  <div style="width: 85%"></div>
+                </div>
+                <small>17 de 20 sesiones asistidas</small>
+              </div>
+              <!-- TARJETA DEL PROYECTO -->
+              <div class="tarjeta-progreso tarjeta-proyecto">
+                <div class="icono-progreso">📁</div>
+                <h3>Proyecto final</h3>
+                <p>
+                  Es necesario entregar un proyecto final para concluir el
+                  taller.
+                </p>
+                <span class="estado pendiente">Pendiente de entrega</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script>
+      const opciones = document.querySelectorAll(".opcion");
+      const titulo = document.getElementById("titulo");
+      const seccion = document.getElementById("seccion");
+      const tarjetas = document.querySelectorAll(".tarjeta");
+      // convertir nombre de la seccion en un id para las tarjetas
+      function convertirASlug(texto) {
+        return texto
+          .toLowerCase() // minusculas
+          .normalize("NFD") // quitar acento
+          .replace(/[\u0300-\u036f]/g, "") // quitar acento
+          .replace(/[^a-z0-9]+/g, "-") // cambiar espacios por guiones
+          .replace(/^-|-$/g, ""); // eliminar guion al final
+      }
+      // Detectar seleccion
+      opciones.forEach((opcion) => {
+        opcion.addEventListener("click", function (event) {
+          event.preventDefault();
+          // encontrar tarjeta seleccionada
+          const nombre = this.dataset.titulo;
+          const idTarjeta = "tarjeta-" + convertirASlug(nombre);
+          // cambiar titulo a la tarjeta seleccionada
+          titulo.textContent = nombre;
+          seccion.textContent = nombre;
+          // oculta todas las tarjetas
+          tarjetas.forEach((tarjeta) => {
+            tarjeta.style.display = "none";
+          });
+          // muestra solo la tarjeta seleccionada
+          const tarjetaSeleccionada = document.getElementById(idTarjeta);
+          if (tarjetaSeleccionada) {
+            tarjetaSeleccionada.style.display = "block";
+          }
+          // cambiar color a la tarjeta seleccionada
+          opciones.forEach((elemento) => elemento.classList.remove("activa"));
+          this.classList.add("activa");
+
+          if (window.innerWidth <= 760) {
+            document.querySelector(".sidebar").classList.remove("is-open");
+            document.body.classList.remove("menu-open");
+            document.querySelector(".menu-toggle").setAttribute("aria-expanded", "false");
+          }
+        });
+      });
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const sidebar = document.querySelector(".sidebar");
+
+      if (menuToggle && sidebar) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = sidebar.classList.toggle("is-open");
+          document.body.classList.toggle("menu-open", isOpen);
+          menuToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        document.addEventListener("click", (event) => {
+          const isMobile = window.innerWidth <= 760;
+          if (!isMobile) return;
+
+          const clickedToggle = menuToggle.contains(event.target);
+          const clickedSidebar = sidebar.contains(event.target);
+
+          if (!clickedToggle && !clickedSidebar && sidebar.classList.contains("is-open")) {
+            sidebar.classList.remove("is-open");
+            document.body.classList.remove("menu-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 760) {
+            sidebar.classList.remove("is-open");
+            document.body.classList.remove("menu-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
+    </script>
+    <!-- FUNCIONAMIENTO DEL VISOR DE CONSTANCIAS -->
+    <script>
+      const botonesVerConstancia =
+        document.querySelectorAll(".ver-mi-constancia");
+
+      const visorMiConstancia = document.getElementById("visor-mi-constancia");
+
+      const cerrarMiConstancia = document.getElementById(
+        "cerrar-mi-constancia",
+      );
+
+      // Abrir visor de constancia
+      botonesVerConstancia.forEach(function (boton) {
+        boton.addEventListener("click", function () {
+          visorMiConstancia.style.display = "flex";
+        });
+      });
+
+      // Cerrar visor de constancia
+      cerrarMiConstancia.addEventListener("click", function () {
+        visorMiConstancia.style.display = "none";
+      });
+    </script>
+
+    <!-- FUNCIONAMIENTO DE EDITAR INFORMACIÓN -->
+    <script>
+      const abrirEditarInformacion = document.getElementById(
+        "abrir-editar-informacion",
+      );
+
+      const tarjetaEditarInformacion = document.getElementById(
+        "tarjeta-editar-informacion",
+      );
+
+      const cerrarEditarInformacion = document.getElementById(
+        "cerrar-editar-informacion",
+      );
+
+      const formularioEditarInformacion = document.getElementById(
+        "formulario-editar-informacion",
+      );
+
+      const mensajeEditarInformacion = document.getElementById(
+        "mensaje-editar-informacion",
+      );
+
+      // Abrir tarjeta
+      abrirEditarInformacion.addEventListener("click", function () {
+        mensajeEditarInformacion.style.display = "none";
+
+        tarjetaEditarInformacion.style.display = "flex";
+      });
+
+      // Cerrar tarjeta
+      cerrarEditarInformacion.addEventListener("click", function () {
+        tarjetaEditarInformacion.style.display = "none";
+      });
+
+      // Guardar cambios
+      formularioEditarInformacion.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        mensajeEditarInformacion.style.display = "block";
+      });
+    </script>
+
+    <!-- FUNCIONAMIENTO DE INSCRIPCIÓN A TALLERES -->
+
+    <script>
+      const botonesRegistro = document.querySelectorAll(".btn-registrarse");
+      const visorInscripcion = document.getElementById("visor-inscripcion");
+      const cerrarInscripcion = document.getElementById("cerrar-inscripcion");
+      const formularioInscripcion = document.getElementById(
+        "formulario-inscripcion",
+      );
+      const mensajeInscripcion = document.getElementById("mensaje-inscripcion");
+      const botonConfirmarInscripcion = document.getElementById(
+        "btn-confirmar-inscripcion",
+      );
+
+      // Abrir tarjeta y mostrar los datos del taller seleccionado
+      botonesRegistro.forEach(function (boton) {
+        boton.addEventListener("click", function () {
+          const fila = this.closest("tr");
+          const datos = fila.querySelectorAll("td");
+
+          document.getElementById("inscripcion-taller").textContent =
+            datos[0].textContent.trim();
+          document.getElementById("inscripcion-categoria").textContent =
+            datos[1].textContent.trim();
+          document.getElementById("inscripcion-instructor").textContent =
+            datos[2].textContent.trim();
+          document.getElementById("inscripcion-dias").textContent =
+            datos[3].textContent.trim();
+          document.getElementById("inscripcion-horario").textContent =
+            datos[4].textContent.trim();
+
+          mensajeInscripcion.style.display = "none";
+          botonConfirmarInscripcion.style.display = "block";
+          visorInscripcion.style.display = "flex";
+        });
+      });
+
+      // Cerrar tarjeta
+      cerrarInscripcion.addEventListener("click", function () {
+        visorInscripcion.style.display = "none";
+      });
+
+      // Confirmar inscripción
+      formularioInscripcion.addEventListener("submit", function (event) {
+        event.preventDefault();
+        mensajeInscripcion.style.display = "block";
+        botonConfirmarInscripcion.style.display = "none";
+      });
+    </script>
+  </body>
+</html>

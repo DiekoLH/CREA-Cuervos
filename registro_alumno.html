@@ -16,21 +16,42 @@
     <div>
         <h2>Crear cuenta de estudiante</h2>
 
-        <form action="login_alumno.html" method="get">
+        <form id="form-registro-alumno" method="post">
             <label>Nombre completo</label>
-            <input type="text" required placeholder="Nombre y apellidos">
+            <input type="text" name="nombre" required placeholder="Nombre y apellidos">
 
             <label>Matrícula o número de control</label>
-            <input type="text" required placeholder="Ingresa tu matrícula">
+            <input type="text" name="matricula" required placeholder="Ingresa tu matrícula">
+
+            <label>Carrera</label>
+            <select name="carrera" required style="width:100%;padding:12px 14px;border:1px solid #d3e2dd;border-radius:9px;font-size:14px;background:#f8fbfa;color:#183b36;">
+                <option value="">Selecciona tu carrera</option>
+                <option value="Desarrollo de Software">Desarrollo de Software</option>
+                <option value="Paramedico">Paramédico</option>
+                <option value="Infraestructura de Redes">Infraestructura de Redes</option>
+                <option value="Mecatronica">Mecatrónica</option>
+                <option value="Procesos Productivos">Procesos Productivos</option>
+            </select>
+
+            <label>Grupo</label>
+            <select name="grupo" required style="width:100%;padding:12px 14px;border:1px solid #d3e2dd;border-radius:9px;font-size:14px;background:#f8fbfa;color:#183b36;">
+                <option value="">Selecciona tu grupo</option>
+                <option value="DSM-41">DSM-41</option>
+                <option value="DSM-42">DSM-42</option>
+                <option value="DSM-43">DSM-43</option>
+                <option value="DSM-44">DSM-44</option>
+            </select>
 
             <label>Correo electrónico</label>
-            <input type="email" required placeholder="Correo electrónico">
+            <input type="email" name="correo" required placeholder="Correo electrónico">
 
             <label>Contraseña</label>
-            <input type="password" required placeholder="Crea una contraseña">
+            <input type="password" name="contrasena" required placeholder="Crea una contraseña">
 
             <label>Confirmar contraseña</label>
-            <input type="password" required placeholder="Confirma tu contraseña">
+            <input type="password" name="confirmar_contrasena" required placeholder="Confirma tu contraseña">
+
+            <p id="msg-registro-alumno" style="display:none;color:#b3382e;font-size:13px;margin-top:6px;"></p>
 
             <button type="submit">Registrar alumno</button>
         </form>
@@ -40,5 +61,30 @@
     </div>
 </main>
 
+<script>
+document.getElementById("form-registro-alumno").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const fd = new FormData(this);
+    const msg = document.getElementById("msg-registro-alumno");
+    msg.style.display = "none";
+
+    if (fd.get("contrasena") !== fd.get("confirmar_contrasena")) {
+        msg.textContent = "Las contraseñas no coinciden.";
+        msg.style.display = "block";
+        return;
+    }
+    fd.append("action", "registro_alumno");
+
+    const res = await fetch("api.php", { method: "POST", body: fd });
+    const data = await res.json();
+    if (!data.ok) {
+        msg.textContent = data.error || "Error al registrar.";
+        msg.style.display = "block";
+        return;
+    }
+    sessionStorage.setItem("creaAlumno", JSON.stringify(data.user));
+    window.location.href = "alumno.html";
+});
+</script>
 </body>
 </html>

@@ -17,14 +17,35 @@
         <h2>Inicio de sesión</h2>
         <p>Ingresa tus datos para consultar tus talleres y avance.</p>
 
-        <form action="alumno.html" method="get">
+        <form id="form-login-alumno" method="post">
             <label>Matrícula o usuario</label>
-            <input type="text" required placeholder="Ingresa tu matrícula o usuario">
+            <input type="text" name="identificador" required placeholder="Ingresa tu matrícula o correo">
+
+            <label>Carrera</label>
+            <select name="carrera" required style="width:100%;padding:12px 14px;border:1px solid #d3e2dd;border-radius:9px;font-size:14px;background:#f8fbfa;color:#183b36;">
+                <option value="">Selecciona tu carrera</option>
+                <option value="Desarrollo de Software">Desarrollo de Software</option>
+                <option value="Paramedico">Paramédico</option>
+                <option value="Infraestructura de Redes">Infraestructura de Redes</option>
+                <option value="Mecatronica">Mecatrónica</option>
+                <option value="Procesos Productivos">Procesos Productivos</option>
+            </select>
+
+            <label>Grupo</label>
+            <select name="grupo" required style="width:100%;padding:12px 14px;border:1px solid #d3e2dd;border-radius:9px;font-size:14px;background:#f8fbfa;color:#183b36;">
+                <option value="">Selecciona tu grupo</option>
+                <option value="DSM-41">DSM-41</option>
+                <option value="DSM-42">DSM-42</option>
+                <option value="DSM-43">DSM-43</option>
+                <option value="DSM-44">DSM-44</option>
+            </select>
 
             <label>Contraseña</label>
-            <input type="password" required placeholder="Ingresa tu contraseña">
+            <input type="password" name="contrasena" required placeholder="Ingresa tu contraseña">
 
-            <button type="submit" onclick="window.location.href='alumno.html'">Ingresar como alumno</button>
+            <p id="msg-login-alumno" style="display:none;color:#b3382e;font-size:13px;margin-top:6px;"></p>
+
+            <button type="submit">Ingresar como alumno</button>
         </form>
 
         <p>¿No tienes cuenta? <a href="registro_alumno.html">Regístrate aquí</a></p>
@@ -32,5 +53,24 @@
     </div>
 </main>
 
+<script>
+document.getElementById("form-login-alumno").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const fd = new FormData(this);
+    fd.append("action", "login_alumno");
+    const msg = document.getElementById("msg-login-alumno");
+    msg.style.display = "none";
+
+    const res = await fetch("api.php", { method: "POST", body: fd });
+    const data = await res.json();
+    if (!data.ok) {
+        msg.textContent = data.error || "Credenciales inválidas.";
+        msg.style.display = "block";
+        return;
+    }
+    sessionStorage.setItem("creaAlumno", JSON.stringify(data.user));
+    window.location.href = "alumno.html";
+});
+</script>
 </body>
 </html>

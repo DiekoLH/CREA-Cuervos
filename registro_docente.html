@@ -16,42 +16,68 @@
     <div>
         <h2>Crear cuenta de instructor</h2>
 
-        <form action="login_docente.html" method="get">
+        <form id="form-registro-docente" method="post">
             <label>Nombre completo</label>
-            <input type="text" required placeholder="Nombre y apellidos">
+            <input type="text" name="nombre" required placeholder="Nombre y apellidos">
 
             <label>Número de identificación</label>
-            <input type="text" required placeholder="Crea o ingresa tu identificación">
+            <input type="text" name="identificacion" required placeholder="Crea o ingresa tu identificación">
 
             <label>Correo electrónico</label>
-            <input type="email" required placeholder="Correo electrónico">
+            <input type="email" name="correo" required placeholder="Correo electrónico">
 
             <label>Taller que imparte</label>
-            <select required>
+            <select name="taller_impartido" required style="width:100%;padding:12px 14px;border:1px solid #d3e2dd;border-radius:9px;font-size:14px;background:#f8fbfa;color:#183b36;">
                 <option value="">Selecciona un taller</option>
-                <option>Danza</option>
-                <option>Fútbol</option>
-                <option>Voleibol</option>
-                <option>Rondalla</option>
-                <option>Ortografía</option>
-                <option>Artes</option>
-                <option>Básquetbol</option>
-                <option>Ajedrez</option>
+                <option value="Danza y baile">Danza y baile</option>
+                <option value="Fútbol soccer">Fútbol soccer</option>
+                <option value="Voleibol">Voleibol</option>
+                <option value="Música">Música</option>
+                <option value="Ortografía y redacción">Ortografía y redacción</option>
+                <option value="Artes visuales">Artes visuales</option>
+                <option value="Teatro">Teatro</option>
             </select>
 
             <label>Contraseña</label>
-            <input type="password" required placeholder="Crea una contraseña">
+            <input type="password" name="contrasena" required placeholder="Crea una contraseña">
 
             <label>Confirmar contraseña</label>
-            <input type="password" required placeholder="Confirma tu contraseña">
+            <input type="password" name="confirmar_contrasena" required placeholder="Confirma tu contraseña">
+
+            <p id="msg-registro-docente" style="display:none;color:#b3382e;font-size:13px;margin-top:6px;"></p>
 
             <button type="submit">Registrar instructor</button>
         </form>
 
-        <p>¿Ya tienes una cuenta? <a href="login-docente.html">Inicia sesión</a></p>
+        <p>¿Ya tienes una cuenta? <a href="login_docente.html">Inicia sesión</a></p>
         <a href="indexMenu.html">Regresar al inicio</a>
     </div>
 </main>
 
+<script>
+document.getElementById("form-registro-docente").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const fd = new FormData(this);
+    const msg = document.getElementById("msg-registro-docente");
+    msg.style.display = "none";
+
+    if (fd.get("contrasena") !== fd.get("confirmar_contrasena")) {
+        msg.textContent = "Las contraseñas no coinciden.";
+        msg.style.display = "block";
+        return;
+    }
+    fd.append("action", "registro_instructor");
+
+    const res = await fetch("api.php", { method: "POST", body: fd });
+    const data = await res.json();
+    if (!data.ok) {
+        msg.textContent = data.error || "Error al registrar.";
+        msg.style.display = "block";
+        return;
+    }
+    sessionStorage.setItem("creaInstructor", JSON.stringify(data.user));
+    window.location.href = "instructor.html";
+});
+</script>
 </body>
 </html>

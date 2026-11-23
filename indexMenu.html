@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="es">
   <head>
@@ -7,6 +9,7 @@
     <link href="style.css" rel="stylesheet" />
     <link href="animaciones.css" rel="stylesheet" />
   </head>
+
   <body>
     <!-- TITULO -->
     <div class="contenedor">
@@ -556,6 +559,30 @@
           slides[actual].classList.add("activa");
         }, 6000);
       })();
+    </script>
+    <script>
+    (async function cargarAvisosBD() {
+    const contenedor = document.querySelector("#tarjeta-eventos-y-avisos .contenedor-eventos");
+    if (!contenedor) return;
+    try {
+        const res = await fetch("api.php?action=listar_avisos");
+        const data = await res.json();
+        if (!data.ok || !Array.isArray(data.avisos)) return;
+        data.avisos.forEach((av) => {
+        const card = document.createElement("div");
+        card.className = "tarjeta-evento";
+        card.innerHTML = `
+            <span class="categoria-evento">${av.taller || "General"}</span>
+            <h3>${av.titulo_aviso}</h3>
+            ${av.imagen ? `<figure class="espacio-imagen ratio-2-1"><img src="${av.imagen}" alt="${av.titulo_aviso}" /></figure>` : ""}
+            <p>${av.contenido}</p>
+            <div class="datos-evento"><span>📅 ${av.fecha_publicacion}</span></div>
+            <span class="tipo-publicacion aviso">Aviso</span>
+        `;
+        contenedor.prepend(card);
+        });
+    } catch (e) {}
+    })();
     </script>
   </body>
 </html>

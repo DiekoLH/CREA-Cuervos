@@ -17,20 +17,41 @@
         <h2>Inicio de sesión</h2>
         <p>Ingresa tus datos para administrar tu taller.</p>
 
-        <form action="docente.html" method="get">
+        <form id="form-login-docente" method="post">
             <label>Usuario o identificación</label>
-            <input type="text" required placeholder="Ingresa tu usuario">
+            <input type="text" name="identificador" required placeholder="Ingresa tu identificación o correo">
 
             <label>Contraseña</label>
-            <input type="password" required placeholder="Ingresa tu contraseña">
+            <input type="password" name="contrasena" required placeholder="Ingresa tu contraseña">
 
-            <button type="submit" onclick="window.location.href='instructor.html'">Ingresar como Instructor</button>
+            <p id="msg-login-docente" style="display:none;color:#b3382e;font-size:13px;margin-top:6px;"></p>
+
+            <button type="submit">Ingresar como Instructor</button>
         </form>
 
-        <p>¿No tienes cuenta? <a href="registro-docente.html">Regístrate aquí</a></p>
+        <p>¿No tienes cuenta? <a href="registro_docente.html">Regístrate aquí</a></p>
         <a href="indexMenu.html">Regresar al inicio</a>
     </div>
 </main>
 
+<script>
+document.getElementById("form-login-docente").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const fd = new FormData(this);
+    fd.append("action", "login_instructor");
+    const msg = document.getElementById("msg-login-docente");
+    msg.style.display = "none";
+
+    const res = await fetch("api.php", { method: "POST", body: fd });
+    const data = await res.json();
+    if (!data.ok) {
+        msg.textContent = data.error || "Credenciales inválidas.";
+        msg.style.display = "block";
+        return;
+    }
+    sessionStorage.setItem("creaInstructor", JSON.stringify(data.user));
+    window.location.href = "instructor.html";
+});
+</script>
 </body>
 </html>
